@@ -6,8 +6,9 @@ export default class CountDown {
     return new Date();
   }
   get total() {
-    const total = Math.floor(this.futureDate - this.currentDate)
-    return total < 0 ? 0 : total;
+    let total = Math.floor(this.futureDate - this.currentDate)
+    if(isNaN(total)) total = 0;
+    return total <= 0 ? 0 : total;
   }
   get days() {
     return Math.floor(this.total / (24*60*60*1000));
@@ -26,11 +27,13 @@ export default class CountDown {
     const hours = this.hours % 24;
     const minutes = this.minutes % 60;
     const seconds = this.seconds % 60;
+    const total = this.total
     return {
       days,
       hours,
       minutes,
       seconds,
+      total,
     }
   }
 }

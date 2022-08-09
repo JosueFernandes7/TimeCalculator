@@ -32,7 +32,6 @@ input[type="datetime-local"] {
   border: 1px solid #fff;
   border-radius: 4px;
   background: rgba(255, 254, 254, 0.445);
-  overflow: auto;
   padding: 5px;
   cursor: pointer;
   transition: 0.4s;
@@ -45,5 +44,16 @@ input[type="datetime-local"]:hover {
   color: #836AC4;
   height:60%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+}
+@media (max-width: 420px) {
+  .container {
+    /* width: 320px; */
+    max-width:320px;
+  }
+  input[type="datetime-local"]{
+    width: 25px;
+    padding: 5px 10px;
+  }
 }
